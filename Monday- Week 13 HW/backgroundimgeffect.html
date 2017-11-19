@@ -1,0 +1,96 @@
+		<!DOCTYPE html>
+		<html>
+		<head>
+		   <link href="style.css" rel="stylesheet" type="text/css" >
+			<script type="text/javascript" src="script.js"></script></head>
+		<body>
+		<h1> The Brooklyn Bridge</h1>
+		<h1>Zoom Effect, Drag Me Effect, & Automatic Uppercase Effect:</h1>
+		
+		<h4> Enter Anything: <input type="text" id="fname" onblur="myFunction()"> </h4>
+
+		<!--When you leave the input field, a function is triggered which transforms the input text to upper case.-->
+
+		<script>
+		function myFunction() {
+		    var x = document.getElementById("fname");
+		    x.value = x.value.toUpperCase();
+		}
+		</script>
+		<style>
+		.droptarget {
+		    float: left; 
+		    width: 100px; 
+		    height: 35px;
+		    margin: 15px;
+		    padding: 10px;
+		    border: 1px solid #aaaaaa;
+		}
+		</style>
+		</head>
+		<body>
+
+
+	<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+	  <p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget">Drag me!</p>
+	</div>
+
+	<div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+	<p style="clear:both;"></p>
+
+	<p id="demo"></p>
+
+	<script>
+	function dragStart(event) {
+	    event.dataTransfer.setData("Text", event.target.id);
+	}
+
+	function dragging(event) {
+	    document.getElementById("demo");
+	}
+
+	function allowDrop(event) {
+	    event.preventDefault();
+	}
+
+	function drop(event) {
+	    event.preventDefault();
+	    var data = event.dataTransfer.getData("Text");
+	    event.target.appendChild(document.getElementById(data));
+	    document.getElementById("demo");
+	}
+	</script>
+		<div class="parent">
+		  <div class="child"></div>
+		  <div class="slideshow-container">
+		  <div class="mySlides fade">
+		    <div class="numbertext">1 / 3</div>
+		    <img src="img1.jpg" style="width:100%">
+		    <div class="text">Claire's on the right</div>
+		  </div>
+
+		  <div class="mySlides fade">
+		    <div class="numbertext">2 / 3</div>
+		    <img src="img2.jpg" style="width:100%">
+		    <div class="text">Brigid's in the middle</div>
+		  </div>
+
+		  <div class="mySlides fade">
+		    <div class="numbertext">3 / 3</div>
+		    <img src="img3.jpg" style="width:100%">
+		    <div class="text">Rileys on the left</div>
+		  </div>
+
+		  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+		</div>
+		<br>
+
+		<div style="text-align:center">
+		  <span class="dot" onclick="currentSlide(1)"></span> 
+		  <span class="dot" onclick="currentSlide(2)"></span> 
+		  <span class="dot" onclick="currentSlide(3)"></span> 
+		</div>
+		</body>
+		</html>
